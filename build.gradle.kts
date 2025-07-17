@@ -1,5 +1,4 @@
 import com.github.spotbugs.snom.SpotBugsTask
-
 plugins {
     // Apply the java plugin to add support for Java
     java
@@ -16,7 +15,12 @@ plugins {
     id("com.github.johnrengelman.shadow") version "8.1.1"
     id("org.danilopianini.gradle-java-qa") version "1.96.0"
     id("org.openjfx.javafxplugin") version "0.0.14"
+
+    id("org.danilopianini.unibo-oop-gradle-plugin") version "1.1.40"
 }
+
+java { toolchain { languageVersion.set(JavaLanguageVersion.of(21)) } }
+
 
 tasks.withType<SpotBugsTask>().configureEach {
     reports.apply {
